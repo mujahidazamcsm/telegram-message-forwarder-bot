@@ -2,7 +2,7 @@ import sys
 
 def get_formatted_chats(chats, app):
     formatted_chats = []
-    LOG.info("get_formatted_chats")
+    LOG.info("get_formatted_chatss")
     LOG.info(chats)
     LOG.info(app)
     for chat in chats:
