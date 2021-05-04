@@ -10,6 +10,9 @@ from bot.helper.utils import get_formatted_chat
 def work(client, message):
     caption = None
     msg = None
+    LOG.info("app.on_message1")
+     LOG.info(message)
+      LOG.info(client)
     if remove_strings:
       for string in remove_strings:
         if message.media and not message.poll:
@@ -19,11 +22,15 @@ def work(client, message):
     if advance_config:
       try:
         for chat in chats_data[message.chat.id]:
+          LOG.info("for chat in chat_data")
           if caption:
+              LOG.info("if")
             message.copy(chat, caption=caption)
           elif msg:
+             LOG.info("elseif")
             app.send_message(chat, msg, parse_mode="html")
           else:
+             LOG.info("else")
             message.copy(chat)
       except Exception as e:
         LOG.error(e)
@@ -41,9 +48,13 @@ def work(client, message):
 
 @app.on_message(filters.user(sudo_users) & filters.command(["fwd", "forward"]), group=1)
 def forward(app, message):
+   LOG.info("on_message filters")
     if len(message.command) > 1:
+       LOG.info("on_message filters if1")
       chat_id = get_formatted_chat(message.command[1], app)
+        LOG.info(chat_id)
       if chat_id:
+          LOG.info("on_message filters if2")
         try:
           offset_id = 0
           limit = 0
