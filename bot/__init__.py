@@ -9,7 +9,7 @@ from bot.helper.utils import get_formatted_chats
 logging.basicConfig(format='[%(asctime)s - %(pathname)s - %(levelname)s] %(message)s',
                     handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
                     level=logging.INFO)
-logging.getLogger("pyrogram").setLevel(logging.ERROR)
+logging.getLogger("pyrogram").setLevel(logging.INFO)
 LOG = logging.getLogger(__name__)
 
 if os.path.exists('config.env'):
