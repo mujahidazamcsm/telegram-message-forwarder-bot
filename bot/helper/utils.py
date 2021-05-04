@@ -1,4 +1,11 @@
 import sys
+import logging
+
+logging.basicConfig(format='[%(asctime)s - %(pathname)s - %(levelname)s] %(message)s',
+                    handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
+                    level=logging.INFO)
+logging.getLogger("pyrogram").setLevel(logging.ERROR)
+LOG = logging.getLogger(__name__)
 
 def get_formatted_chats(chats, app):
     formatted_chats = []
