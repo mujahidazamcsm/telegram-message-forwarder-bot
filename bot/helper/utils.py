@@ -15,8 +15,8 @@ def get_formatted_chats(chats, app):
           LOG.info("get_formatted_chats elif")
           formatted_chats.append(app.get_chat(chat.replace("@", "")).id)
         elif chat.startswith("https://t.me/c/") or chat.startswith("https://telegram.org/c/") or chat.startswith("https://telegram.dog/c/"):
-            LOG.info("get_formatted_chats elif2") 
-            chat_id = chat.split("/")[4]
+          LOG.info("get_formatted_chats elif2") 
+          chat_id = chat.split("/")[4]
           if isInt(chat_id):
             chat_id = "-100" + str(chat_id)
             chat_id = int(chat_id)
